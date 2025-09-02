@@ -61,6 +61,7 @@ function loadTasks() {
 
 function createCompleteBtn(li) {
     const completeBtn = document.createElement('button') // create button
+    completeBtn.setAttribute('aria-label', 'Mark task as completed')
     completeBtn.textContent = 'Done' // naming button
     completeBtn.classList.add('complete-btn') // giving class name to button
 
@@ -92,6 +93,7 @@ function createCompleteBtn(li) {
 
 function createDeleteBtn(li) {
     const deleteBtn = document.createElement('button')
+    deleteBtn.setAttribute('aria-label', 'Delete task')
     deleteBtn.textContent = 'Delete'
     deleteBtn.classList.add('delete-btn')
 

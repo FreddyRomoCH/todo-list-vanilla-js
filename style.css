@@ -3,13 +3,14 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 3;
     gap: 20px;
     text-align: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    height: 100vh;
 }
 
 main section {
@@ -24,6 +25,7 @@ main section {
 #section-list {
     background-color:rgb(250, 235, 215);
     padding: 12px;
+    min-height: 50vh;
 }
 
 .ctn-new-task {
@@ -40,22 +42,30 @@ main section {
 }
 
 .ctn-new-task #todo-input {
-    padding: 2px 5px;
+    padding: 6px 12px;
     border: none;
     border-radius: 3px;
 }
 
 .ctn-new-task #add-task-btn {
-    padding: 2px 5px;
+    padding: 6px 12px;
     border-radius: 3px;
     border: none;
     cursor: pointer;
+}
+
+.ctn-new-task #add-task-btn:hover{
+    opacity: 0.8;
 }
 
 .ctn-list {
     width: 90%;
     max-width: 500px;
     margin: 0 auto;
+}
+
+.ctn-list .completed .task-text {
+    color: white;
 }
 
 .ctn-list .task-text {
@@ -76,13 +86,18 @@ main section {
     justify-content: space-between;
     gap: 10px;
     position: relative;
-    margin: 5px 0;
+    margin: 0;
     padding: 12px;
-    border-radius: 3px;
+    border-bottom: 1px solid gray;
+}
+
+.ctn-list ul li:last-child {
+    border: none;
 }
 
 .ctn-list ul li.completed {
     background-color: mediumseagreen;
+    border-radius: 3px;
 }
 
 .ctn-list ul li .complete-btn {
@@ -110,4 +125,25 @@ main section {
 .ctn-list li .actions {
     display: flex;
     gap: 3px;
+}
+
+.footer {
+    background-color: burlywood;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    font-weight: 300;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer ul li img {
+    width: 4rem;
 }
