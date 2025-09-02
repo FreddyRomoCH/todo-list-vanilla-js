@@ -1,0 +1,113 @@
+body {
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main section {
+    border-radius: 10px;
+}
+
+#section-header {
+    background-color: burlywood;
+    padding: 12px;
+}
+
+#section-list {
+    background-color:rgb(250, 235, 215);
+    padding: 12px;
+}
+
+.ctn-new-task {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctn-new-task h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.ctn-new-task #todo-input {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.ctn-new-task #add-task-btn {
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.ctn-list {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.ctn-list .task-text {
+    font-size: 16px;
+    line-height: 19px;
+    color: rgb(101, 100, 98);
+}
+
+.ctn-list ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.ctn-list ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+    margin: 5px 0;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+.ctn-list ul li.completed {
+    background-color: mediumseagreen;
+}
+
+.ctn-list ul li .complete-btn {
+    cursor: pointer;
+    background-color: rgb(4, 87, 4);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+}
+
+.ctn-list ul li .delete-btn {
+    cursor: pointer;
+    background-color: rgb(147, 21, 21);
+    color: #fff;
+    border: none;
+    border-radius: 5px;;
+    padding: 4px 8px;
+}
+
+.ctn-list ul li .complete-btn:hover, .ctn-list ul li .delete-btn:hover {
+    opacity: 0.8;
+}
+
+.ctn-list li .actions {
+    display: flex;
+    gap: 3px;
+}
