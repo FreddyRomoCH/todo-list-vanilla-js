@@ -1,10 +1,19 @@
+:root {
+    --color-primary: burlywood;
+    --color-secondary: rgb(250, 235, 215);
+    --color-danger: #931515;
+    --color-completed: mediumseagreen;
+    --color-task-text: rgb(101, 100, 98);
+    --color-done: rgb(4, 87, 4);
+}
+
 body {
     font-family: 'Lucida Sans', sans-serif;
 }
 
 main {
     display: grid;
-    grid-template-rows: 3;
+    grid-template-rows: repeat(3, auto);
     gap: 20px;
     text-align: center;
     width: 100%;
@@ -18,12 +27,12 @@ main section {
 }
 
 #section-header {
-    background-color: burlywood;
+    background-color: var(--color-primary);
     padding: 12px;
 }
 
 #section-list {
-    background-color:rgb(250, 235, 215);
+    background-color: var(--color-secondary);
     padding: 12px;
     min-height: 50vh;
 }
@@ -37,11 +46,6 @@ main section {
     width: 90%;
     max-width: 500px;
     margin: 0 auto;
-}
-
-.ctn-new-task h2 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
 }
 
 .ctn-new-task #todo-input {
@@ -75,7 +79,7 @@ main section {
 .ctn-list .task-text {
     font-size: 16px;
     line-height: 19px;
-    color: rgb(101, 100, 98);
+    color: var(--color-task-text);
 }
 
 .ctn-list ul {
@@ -100,13 +104,13 @@ main section {
 }
 
 .ctn-list ul li.completed {
-    background-color: mediumseagreen;
+    background-color: var(--color-completed);
     border-radius: 3px;
 }
 
 .ctn-list ul li .complete-btn {
     cursor: pointer;
-    background-color: rgb(4, 87, 4);
+    background-color: var(--color-done);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -115,7 +119,7 @@ main section {
 
 .ctn-list ul li .delete-btn {
     cursor: pointer;
-    background-color: rgb(147, 21, 21);
+    background-color: var(--color-danger);
     color: #fff;
     border: none;
     border-radius: 5px;;
@@ -132,7 +136,7 @@ main section {
 }
 
 .footer {
-    background-color: burlywood;
+    background-color: var(--color-primary);
     padding: 12px;
     border-radius: 10px;
 }

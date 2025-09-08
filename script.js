@@ -16,7 +16,7 @@ function saveTasks() {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
     } catch (error) {
-        console.log('Not possible to save in lcalStorage: ', error)
+        console.log('Not possible to save in localStorage: ', error)
     }
 }
 
