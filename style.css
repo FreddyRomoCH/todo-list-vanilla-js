@@ -10,7 +10,7 @@ main {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    height: 100vh;
+    height: 100dvh; 
 }
 
 main section {
@@ -33,7 +33,10 @@ main section {
     flex-direction: row;
     gap: 12px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .ctn-new-task h2 {
@@ -42,6 +45,7 @@ main section {
 }
 
 .ctn-new-task #todo-input {
+    width: 100%;
     padding: 6px 12px;
     border: none;
     border-radius: 3px;
