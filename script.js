@@ -68,6 +68,7 @@ function createCompleteBtn(li) {
     completeBtn.addEventListener('click', () => { // when clicking button
         li.classList.toggle('completed')
         completeBtn.textContent = li.classList.contains('completed') ? 'Undo' : 'Done'
+        completeBtn.setAttribute('aria-pressed', li.classList.contains('completed') ? 'true' : 'false')
 
         const ul = li.parentElement
 

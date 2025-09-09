@@ -5,6 +5,7 @@
     --color-completed: mediumseagreen;
     --color-task-text: rgb(101, 100, 98);
     --color-done: rgb(4, 87, 4);
+    --color-button-focus: #6c6868;
 }
 
 body {
@@ -24,6 +25,10 @@ main {
 
 main section {
     border-radius: 10px;
+}
+
+button:focus {
+    outline: 2px solid var(--color-button-focus);
 }
 
 #section-header {
@@ -73,7 +78,7 @@ main section {
 }
 
 .ctn-list .completed .task-text {
-    color: white;
+    color: #111;
 }
 
 .ctn-list .task-text {
