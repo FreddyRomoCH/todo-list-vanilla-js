@@ -22,6 +22,7 @@ function saveTasks() {
 
 function buildTaskItem(text, completed = false) {
   const li = document.createElement('li')
+  li.classList.add('task-enter')
 
   const span = document.createElement('span')
   span.textContent = text
@@ -40,6 +41,12 @@ function buildTaskItem(text, completed = false) {
     li.classList.add('completed')
     completeBtn.textContent = 'Undo'
   }
+
+  // We execute the animation
+  requestAnimationFrame(() => {
+    li.classList.add('task-enter-active')
+    li.classList.remove('task-enter')
+  })
 
   return li
 }
@@ -99,8 +106,12 @@ function createDeleteBtn(li) {
     deleteBtn.classList.add('delete-btn')
 
     deleteBtn.addEventListener('click', () => {
-        li.remove()
-        saveTasks()
+        li.classList.add('task-exit')
+        
+        li.addEventListener('transitionend', () => {
+            li.remove()
+            saveTasks()
+        }, {once: true})
     })
 
     return deleteBtn

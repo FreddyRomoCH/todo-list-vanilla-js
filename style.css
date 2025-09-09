@@ -102,6 +102,8 @@ button:focus {
     margin: 0;
     padding: 12px;
     border-bottom: 1px solid gray;
+    transition: all 0.3s ease; /* Transitions */
+    transform: translateY(0);
 }
 
 @media (max-width: 600px) {
@@ -109,6 +111,22 @@ button:focus {
         flex-direction: column;
         align-items: center;
     }
+}
+
+.task-enter { /* When creating a Task */
+    opacity: 0;
+    transform: translateY(-10px);
+
+}
+
+.task-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.task-exit { /* When deleting a Task */
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .ctn-list ul li:last-child {
