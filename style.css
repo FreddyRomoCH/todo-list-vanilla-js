@@ -1,26 +1,57 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/InterVar.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    --color-primary: burlywood;
+    --color-primary: #0D3B66; /* Dark Blue */
+    --color-primary-hover: #0b3257; /* Dark Blue */
+    --color-button-text: #FFFFFF; /* White */
+    --color-base-background: #F5F6FA; /* Light Gray */
+    --color-title: #1E1E1E; /* Dark Gray */
+    --color-text: #5A5A5A; /* Medium Gray */ 
     --color-secondary: rgb(250, 235, 215);
-    --color-danger: #931515;
+    --color-danger: #931515; /* Dark Red */
     --color-completed: mediumseagreen;
-    --color-task-text: rgb(101, 100, 98);
-    --color-done: rgb(4, 87, 4);
+    --color-done: #2EC4B6; /* Teal */
     --color-button-focus: #6c6868;
+
+    --ff-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    --border-section: 1px solid var(--color-text);
 }
 
 body {
-    font-family: 'Lucida Sans', sans-serif;
+    font-family: var(--ff-sans);
+    background-color: var(--color-base-background);
 }
 
 main {
     display: grid;
     grid-template-rows: repeat(3, auto);
-    gap: 20px;
+    gap: 24px;
     text-align: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    min-height: 100dvh; 
+    /* min-height: 100dvh;  */
+}
+
+.app-title {
+    color: var(--color-primary);
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 32px 0;
+}
+
+@media (max-width: 600px) {
+    .app-title {
+        font-size: 28px;
+    }
 }
 
 main section {
@@ -32,14 +63,41 @@ button:focus {
 }
 
 #section-header {
-    background-color: var(--color-primary);
-    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-section);
+    background-color: var(--color-button-text);
+}
+
+main section {
+    padding: 5px 32px;
+}
+
+@media (max-width: 600px) {
+    main section {
+        padding: 5px 24px;
+    }
 }
 
 #section-list {
-    background-color: var(--color-secondary);
-    padding: 12px;
-    min-height: 50vh;
+    background-color: var(--color-button-text);
+    border: var(--border-section);
+    /* min-height: 50vh; */
+}
+
+#section-list h2 {
+    color: var(--color-title);
+    font-size: 24px;
+    font-weight: semi-bold;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    #section-list h2 {
+        font-size: 20px;
+    }
 }
 
 .ctn-new-task {
@@ -48,32 +106,38 @@ button:focus {
     gap: 12px;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    /* max-width: 500px; */
     margin: 0 auto;
 }
 
 .ctn-new-task #todo-input {
     width: 100%;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 3px;
+    padding: 10px 12px;
+    border: 1px solid #F5F6FA;
+    border-radius: 6px;
 }
 
 .ctn-new-task #add-task-btn {
-    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 44px;
+    width: 74px;
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
+    transition: background-color 0.3s ease;
 }
 
 .ctn-new-task #add-task-btn:hover{
-    opacity: 0.8;
+    background-color: var(--color-primary-hover);
 }
 
 .ctn-list {
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    /* max-width: 500px; */
     margin: 0 auto;
 }
 
@@ -84,7 +148,7 @@ button:focus {
 .ctn-list .task-text {
     font-size: 16px;
     line-height: 19px;
-    color: var(--color-task-text);
+    color: var(--color-text);
 }
 
 .ctn-list ul {
@@ -169,11 +233,12 @@ button:focus {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    background-color: var(--color-primary);
-    padding: 12px;
+    justify-content:space-between;
+    background-color: var(--color-button-text);
+    padding: 5px 32px;
     border-radius: 10px;
     gap: 10px;
+    border: var(--border-section);
 }
 
 @media (max-width: 600px) {
