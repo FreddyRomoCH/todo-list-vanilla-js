@@ -117,6 +117,10 @@ function createDeleteBtn(li) {
     return deleteBtn
 }
 
+addTaskInput.addEventListener('input', () => {
+    addTaskBtn.disabled = addTaskInput.value.trim() === ''
+})
+
 addTaskBtn.addEventListener('click', () => { // Cick button Add Task
     const taskText = addTaskInput.value.trim()
 
@@ -126,8 +130,6 @@ addTaskBtn.addEventListener('click', () => { // Cick button Add Task
         saveTasks()
         addTaskInput.value = ''
         addTaskInput.focus() // We give the focus to the task input
-    }else{
-        console.log('No task added')
     }
 })
 
