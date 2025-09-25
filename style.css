@@ -147,6 +147,25 @@ main section {
     gap: 5px;
 }
 
+.date-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-box label {
+    position: absolute;
+    top: -6px;
+    background-color: #fff;
+    padding: 0 10px;
+    font-family: var(--ff-sans);
+    font-size: x-small;
+    color: var(--color-button-focus);
+}
+
+
 .ctn-new-task #add-task-btn {
     font-size: 16px;
     font-weight: 600;
