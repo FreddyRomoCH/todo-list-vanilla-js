@@ -117,6 +117,12 @@ main section {
     padding: 0;
 }
 
+@media (max-width: 600px) {
+    .ctn-new-task {
+        flex-direction: column;
+    }
+}
+
 .ctn-new-task #todo-input {
     font-family: var(--ff-sans);
     font-size: 16px;
@@ -125,6 +131,20 @@ main section {
     padding: 10px 12px;
     border: 1px solid #F5F6FA;
     border-radius: 6px;
+}
+
+.ctn-new-task #show-calendar {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.header-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .ctn-new-task #add-task-btn {

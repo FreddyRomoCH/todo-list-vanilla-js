@@ -62,9 +62,9 @@ function buildTaskItem(text, date, completed = false) {
     if (date) {
         const diffDays = (new Date(date) - new Date(todayDate)) / (1000 * 60 * 60 * 24)
 
-        if (todayDate > date || diffDays <= 3) { // If the day has passed the deadline
+        if (todayDate > date || diffDays <= 3) { // If the day has passed the deadline or 3 days to deadine
             spanDate.classList.add('late')
-        }else if (todayDate < date && diffDays <= 7) {
+        }else if (todayDate < date && diffDays <= 7) { // if 7 days to deadline
             spanDate.classList.add('soon')
         }else{
             spanDate.classList.add('ontime')
