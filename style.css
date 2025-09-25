@@ -269,7 +269,33 @@ main section {
 
 .ctn-list li .actions {
     display: flex;
+    align-items: center;
     gap: 3px;
+}
+
+.ctn-list li .actions .date-text {
+    font-family: var(--ff-sans);
+    font-size: 12px;
+    font-weight: 200;
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #F5F6FA;
+    border-radius: 6px;
+}
+
+.ctn-list li .actions .date-text.ontime {
+    border-color: #1e951e;
+    background: #efffef;
+}
+
+.ctn-list li .actions .date-text.late {
+    border-color: #be0e0e;
+    background: #f4e7e7;
+}
+
+.ctn-list li .actions .date-text.soon {
+    background: #ececce;
+    border-color: #b0b012;
 }
 
 .footer {
