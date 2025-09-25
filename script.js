@@ -5,13 +5,30 @@ const STORAGE_KEY = 'todo-v1'
 const addTaskBtn = document.getElementById('add-task-btn')
 const addTaskInput = document.getElementById('todo-input')
 const todoList = document.querySelector('.ctn-list ul')
+let dateSelected = null
+
+// Calendar
+function formatDate(date){
+    if (!date) return null
+
+    const [year, month, day] = date.split('-')
+    return `${day}/${month}/${year}`    
+}
+const showCalendar = document.getElementById('show-calendar')
+const today = new Date().toISOString().split("T")[0];
+showCalendar.setAttribute("min", today)
+
+showCalendar.addEventListener("change", () => {
+    dateSelected = showCalendar.value
+})
 
 function saveTasks() {
     const tasks = []
     document.querySelectorAll('.ctn-list ul li').forEach( li => {
         const text = li.querySelector('.task-text')?.textContent ?? ''
+        const date = li.getAttribute('data-date')
         const completed = li.classList.contains('completed')
-        tasks.push({ text, completed })
+        tasks.push({ text, date, completed })
     })
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
@@ -20,35 +37,62 @@ function saveTasks() {
     }
 }
 
-function buildTaskItem(text, completed = false) {
-  const li = document.createElement('li')
-  li.classList.add('task-enter')
+function buildTaskItem(text, date, completed = false) {
+    const li = document.createElement('li')
+    li.classList.add('task-enter')
+    li.setAttribute('data-date', date || '')
 
-  const span = document.createElement('span')
-  span.textContent = text
-  span.classList.add('task-text')
+    //showing TEXT of task
+    const span = document.createElement('span')
+    span.textContent = text
+    span.classList.add('task-text')
 
-  const actions = document.createElement('div')
-  actions.classList.add('actions')
+    // Showing Date of task
+    const spanDate = document.createElement('span')
+    if (date) {
+        spanDate.textContent = `Deadline: ${formatDate(date)}`
+    }else{
+        spanDate.textContent = "No deadline"
+    }
 
-  const completeBtn = createCompleteBtn(li)
-  const deleteBtn = createDeleteBtn(li)
+    spanDate.classList.add('date-text')
+    // Checking if task if late or not
+    const todayDate = today
 
-  actions.append(completeBtn, deleteBtn)
-  li.append(span, actions)
+    if (date) {
+        const diffDays = (new Date(date) - new Date(todayDate)) / (1000 * 60 * 60 * 24)
 
-  if (completed) {
+        if (todayDate > date || diffDays <= 3) { // If the day has passed the deadline
+            spanDate.classList.add('late')
+        }else if (todayDate < date && diffDays <= 7) {
+            spanDate.classList.add('soon')
+        }else{
+            spanDate.classList.add('ontime')
+        }
+    }
+    
+
+    const actions = document.createElement('div')
+    actions.classList.add('actions')
+
+    const completeBtn = createCompleteBtn(li)
+    const deleteBtn = createDeleteBtn(li)
+
+    actions.append(spanDate, completeBtn, deleteBtn)
+    li.append(span, actions)
+
+    if (completed) {
     li.classList.add('completed')
     completeBtn.textContent = 'Undo'
-  }
+    }
 
-  // We execute the animation
-  requestAnimationFrame(() => {
+    // We execute the animation
+    requestAnimationFrame(() => {
     li.classList.add('task-enter-active')
     li.classList.remove('task-enter')
-  })
+    })
 
-  return li
+    return li
 }
 
 function loadTasks() {
@@ -61,7 +105,7 @@ function loadTasks() {
     }
 
     tasks.forEach(t => {
-        const li = buildTaskItem(t.text, t.completed)
+        const li = buildTaskItem(t.text, t.date, t.completed)
         todoList.appendChild(li)
     })
 }
@@ -125,7 +169,7 @@ addTaskBtn.addEventListener('click', () => { // Cick button Add Task
     const taskText = addTaskInput.value.trim()
 
     if (taskText !== '') {
-        const li = buildTaskItem(taskText, false)
+        const li = buildTaskItem(taskText, dateSelected, false)
         todoList.appendChild(li)
         saveTasks()
         addTaskInput.value = ''
