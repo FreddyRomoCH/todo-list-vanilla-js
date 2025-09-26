@@ -134,6 +134,11 @@ main section {
 }
 
 .ctn-new-task #show-calendar {
+    -webkit-appearance: none; /* elimina estilo nativo en Safari/iOS */
+    -moz-appearance: none;    /* elimina estilo nativo en Firefox */
+    appearance: none;         /* estándar */
+
+    background-color: #fff;
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
