@@ -139,10 +139,12 @@ main section {
     appearance: none;         /* estándar */
 
     background-color: #fff;
-    padding: 10px 12px;
+    padding: 0 12px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 16px;
+    height: 44px;
+    width: 124px;
 }
 
 .header-button {
